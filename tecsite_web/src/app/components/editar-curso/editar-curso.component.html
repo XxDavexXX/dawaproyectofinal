@@ -1,0 +1,33 @@
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="card-body text-center">
+          <span class="titulo">EDITAR CURSO</span>
+          <form (ngSubmit)="actualizarCurso()">
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="curso.nombre" required>
+            </div>
+            <div class="mb-3">
+              <label for="descripcion" class="form-label">Descripción</label>
+              <textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="curso.descripcion" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="profesor" class="form-label">Profesor</label>
+              <select class="form-control" id="profesor" name="profesor" [(ngModel)]="curso.profesor" required>
+                <option *ngFor="let profesor of listaProfesores" [ngValue]="profesor.id">{{ profesor.nombre }} {{ profesor.apellido }}</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="estudiante" class="form-label">Estudiante</label>
+              <select class="form-control" id="estudiante" name="estudiante" [(ngModel)]="curso.estudiantes" required>
+                <option *ngFor="let estudiante of listaEstudiantes" [ngValue]="estudiante.id">{{ estudiante.nombre }}</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Actualizar Curso</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
